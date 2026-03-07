@@ -10,7 +10,7 @@
   "dependencies": {
     "@prisma/client": "7.4.2",
     "dotenv": "^17.3.1",
-    "prisma-typed-json-generator": "workspace:*"
+    "@innovixx/prisma-typed-json-generator": "workspace:*"
   },
   "devDependencies": {
     "prisma": "7.4.2",
