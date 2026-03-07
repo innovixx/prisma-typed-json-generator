@@ -1,5 +1,5 @@
 generator prisma_types_json_generator {
-  provider = "prisma-typed-json-generator"
+  provider = "@innovixx/prisma-typed-json-generator"
   output   = "../types"
 }
 
