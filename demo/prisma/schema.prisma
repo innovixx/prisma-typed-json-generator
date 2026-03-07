@@ -1,5 +1,5 @@
-generator prisma_generator_boilerplate {
-  provider = "prisma-typed-json-generator"
+generator prisma_types_json_generator {
+  provider = "cd ../ && npx prisma-typed-json-generator"
   output   = "../types"
 }
 

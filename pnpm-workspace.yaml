@@ -1,3 +1,9 @@
 packages:
   - .
   - demo
+
+onlyBuiltDependencies:
+  - '@prisma/engines'
+  - esbuild
+  - prisma
+  - unrs-resolver
