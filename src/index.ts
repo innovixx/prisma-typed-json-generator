@@ -13,11 +13,11 @@ generatorHandler({
 		return {
 			version: pkg.version,
 			defaultOutput: '../generated',
-			prettyName: "prisma-generator-boilerplate",
+			prettyName: "prisma-typed-json-generator",
 		}
 	},
 	onGenerate: async (options: GeneratorOptions) => {
-		logger.info(`prisma-generator-boilerplate:Generating...`)
+		logger.info(`prisma-typed-json-generator:Generating...`)
 
 		options.dmmf.datamodel.enums.forEach(async (enumInfo) => {
 			const tsEnum = genEnum(enumInfo)
@@ -31,6 +31,6 @@ generatorHandler({
 			fs.writeFileSync(writeLocation, tsEnum)
 		})
 
-		logger.info(`prisma-generator-boilerplate:Generating...Done`)
+		logger.info(`prisma-typed-json-generator:Generating...Done`)
 	},
 })
