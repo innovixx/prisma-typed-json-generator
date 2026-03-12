@@ -8,6 +8,9 @@
   "bin": {
     "@innovixx/prisma-typed-json-generator": "dist/bin/index.js"
   },
+  "repository": {
+    "url": "https://github.com/innovixx/prisma-typed-json-generator"
+  },
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
