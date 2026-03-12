@@ -1,5 +1,10 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
 generator prisma_types_json_generator {
-  provider = "@innovixx/prisma-typed-json-generator"
+  provider = "cd .. && npx @innovixx/prisma-typed-json-generator"
   output   = "../types"
 }
 
@@ -7,10 +12,17 @@ datasource db {
   provider = "postgresql"
 }
 
+// type Address {
+//   street String
+//   city String
+//   country String
+// }
+
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id      Int     @id @default(autoincrement())
+  email   String  @unique
+  name    String?
+  address Json? // @type(Address)
 }
 
 enum NotificationType {
@@ -30,4 +42,31 @@ enum Language {
   Go
   Python
   Cpp
+}
+
+// type OperatingHours {
+//   dayOfWeek Int
+//   openTime  String
+//   closeTime String
+// }
+
+model Client {
+  id                     String   @id @default(cuid())
+  name                   String
+  phone                  String?
+  email                  String?
+  street                 String?
+  locality               String?
+  administrativeDivision String?
+  postalCode             String?
+  country                String?
+  latitude               Float?
+  longitude              Float?
+  parentClientId         String?
+  parentClient           Client?  @relation("ClientHierarchy", fields: [parentClientId], references: [id])
+  operatingHours         Json[] // @type(OperatingHours)
+  accessInstructions     String?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  childClients           Client[] @relation("ClientHierarchy")
 }
