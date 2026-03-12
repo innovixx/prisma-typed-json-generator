@@ -70,7 +70,7 @@ export async function writeTypesFile(
 		}
 		typeFileContent += '}\n\n';
 	}
-	const outputPath = path.join(clientDir, 'prisma-json.types.ts');
+	const outputPath = path.join(clientDir, 'prisma-json.types.d.ts');
 	await fs.promises.mkdir(clientDir, { recursive: true });
 	await fs.promises.writeFile(outputPath, typeFileContent, 'utf-8');
 	return outputPath;
